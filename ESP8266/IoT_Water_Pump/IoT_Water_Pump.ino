@@ -21,7 +21,7 @@
 #include <WiFiClient.h>
 ESP8266WiFiMulti WiFiMulti;
 
-String weblink = "http://http://iotpump.ahmadsum1.dx.am/show.php?data=";  //add ur custom website link
+String weblink = "http://iotpump.ahmadsum1.dx.am/get.php?data=";  //add ur custom website link
 
 
 
