@@ -1,16 +1,24 @@
 /*
-   Code version: 1.01
-   Date: 5 May 2019
-   Author: Sakib Ahmed
+	IoT_Water_Pump.ino
 
+	Controlling motor with soil moisture reading.
+  Motor will turn ON if the value is less than minimum moist and will turn OFF if the value cross max moist.
+  hits a link every time the pump status is changed from "off" to "on" (or "on" to "off") and make a 
+  http post in the server. 
+  The data is then shown in a basic table here: http://iotpump.ahmadsum1.dx.am/
 
+	The circuit:
+  * ESP8266 (NodeMCU as main MCU)
+	* Analog soil moisturesensor connected to A0
+	* A 5V single channel relay connectedto D1
 
-   ###########Application###########
+	Created 4 May 2019
+	By Sakib Ahmed
 
-   Controlling motor with soil moisture reading.
-   Motor will turn ON if the value is less than minimum moist and will turn OFF if the value cross max moist.
+	https://github.com/ahmadSum1/IoT-WaterPump
 
 */
+
 
 
 
@@ -22,8 +30,6 @@
 ESP8266WiFiMulti WiFiMulti;
 
 String weblink = "http://iotpump.ahmadsum1.dx.am/get.php?data=";  //should add ur custom website link
-                                                                  //for this sample code, u can view it over here, just a basic table
-                                                                  //http://iotpump.ahmadsum1.dx.am/
 
 
 
@@ -51,6 +57,7 @@ void loop() {
 
   // print out the value you read:
   Serial.print( (String)"Soil Moist: " + soil_moist );
+  
   delay(500);        // delay in between reads for stability
 
   if (soil_moist < min_moist) {
