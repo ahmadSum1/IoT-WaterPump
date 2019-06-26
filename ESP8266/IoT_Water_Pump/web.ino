@@ -10,7 +10,7 @@ void webSetup() {
   }
 
   WiFi.mode(WIFI_STA);
-  WiFiMulti.addAP("TECHCOM-TURBO", "techcomadmin@71"); // wifi-pass
+  WiFiMulti.addAP("ssid", "password"); // wifi-pass
 
 }
 
